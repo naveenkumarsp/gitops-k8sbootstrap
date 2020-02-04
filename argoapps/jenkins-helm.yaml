@@ -14,4 +14,4 @@ spec:
       valueFiles: 'jenkins-values.yaml' # resolved against source.repoURL and source.path
   destination:
     server: https://kubernetes.default.svc
-    namespace: guestbook
+    namespace: default
