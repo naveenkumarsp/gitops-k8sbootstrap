@@ -136,7 +136,7 @@ master:
   # runAsUser: <defaults to 0>
   # fsGroup: <will be omitted in deployment if runAsUser is 0>
   servicePort: 8080
-  targetPort: 80
+  targetPort: 8080
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
   serviceType: ClusterIP
@@ -181,6 +181,9 @@ master:
   # this will be an external load balancer and allowing inbound 0.0.0.0/0, a HUGE
   # security risk:  https://github.com/kubernetes/charts/issues/1341
   slaveListenerServiceType: "ClusterIP"
+  # Optionally assign an IP to the LoadBalancer slaveListenerService LoadBalancer
+  # GKE users: only regional static IPs will work for Service Load balancer.
+  # slaveListenerLoadBalancerIP: 1.2.3.4
   slaveListenerServiceAnnotations: {}
   slaveKubernetesNamespace:
 
@@ -215,7 +218,6 @@ master:
     - workflow-aggregator:2.6
     - credentials-binding:1.20
     - git:4.0.0
-    - blueocean:1.21.0
 
   # Enable to always override the installed plugins with the values of 'master.installPlugins' on upgrade or redeployment.
   # overwritePlugins: true
@@ -321,6 +323,8 @@ master:
   # ref: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
   # priorityClass: system-cluster-critical
   podAnnotations: {}
+  # Add deployment annotation
+  deploymentAnnotations: {}
 
   # The below two configuration-related values are deprecated and replaced by Jenkins Configuration as Code (see above
   # JCasC key).  They will be deleted in an upcoming version.
@@ -337,9 +341,9 @@ master:
   overwriteJobs: false
 
   ingress:
-    enabled: true
+    enabled: false
     # For Kubernetes v1.14+, use 'networking.k8s.io/v1beta1'
-    apiVersion: "networking.k8s.io/v1beta1"
+    apiVersion: "extensions/v1beta1"
     labels: {}
     annotations: {}
     # kubernetes.io/ingress.class: nginx
@@ -347,7 +351,7 @@ master:
     # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
     # path: "/jenkins"
     # configures the hostname e.g. jenkins.example.com
-    hostName: jenkins.eqslearning.com
+    hostName:
     tls:
     # - secretName: jenkins.cluster.local
     #   hosts:
@@ -475,7 +479,7 @@ agent:
   slaveConnectTimeout: 100
 
 persistence:
-  enabled: true
+  enabled: false
   ## A manually managed Persistent Volume and Claim
   ## Requires persistence.enabled: true
   ## If defined, PVC must be created manually before volume will be bound
