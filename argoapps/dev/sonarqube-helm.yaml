@@ -13,8 +13,6 @@ spec:
     repoURL: https://github.com/naveenkumarsp/gitops-k8sbootstrap.git
     targetRevision: HEAD
     path: "devopstools/sonarqube"
-    helm:
-        valueFiles: katacoda-harbor-values.yaml
 
   # Destination cluster and namespace to deploy the application
   destination:
