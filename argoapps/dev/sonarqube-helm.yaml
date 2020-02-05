@@ -14,7 +14,7 @@ spec:
     targetRevision: HEAD
     path: "devopstools/sonarqube"
     helm:
-        valueFiles: 'devopstools/harbor/katacoda-harbor-values.yaml'
+        valueFiles: katacoda-harbor-values.yaml
 
   # Destination cluster and namespace to deploy the application
   destination:
