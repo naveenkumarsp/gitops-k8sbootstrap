@@ -14,7 +14,7 @@ spec:
     targetRevision: 3.4.0
     chart: sonarqube
     helm:
-        valueFiles: 'devopstools/jenkins/katacoda-jenkins-values.yaml'
+        valueFiles: 'devopstools/sonarqube/katacoda-sonarqube-values.yaml'
 
   # Destination cluster and namespace to deploy the application
   destination:
