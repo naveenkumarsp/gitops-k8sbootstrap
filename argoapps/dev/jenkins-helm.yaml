@@ -14,7 +14,7 @@ spec:
     targetRevision: HEAD
     path: "devopstools/jenkins"
     helm:
-        valueFiles: 'devopstools/jenkins/katacoda-jenkins-values.yaml'
+        valueFiles: devopstools/jenkins/katacoda-jenkins-values.yaml
 
   # Destination cluster and namespace to deploy the application
   destination:
