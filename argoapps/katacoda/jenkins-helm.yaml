@@ -14,7 +14,8 @@ spec:
     targetRevision: 1.9.16
     chart: jenkins
     helm:
-        valueFiles: 'devopstools/jenkins/katacoda-jenkins-values.yaml'
+        valueFiles: 
+        - 'devopstools/jenkins/katacoda-jenkins-values.yaml'
 
   # Destination cluster and namespace to deploy the application
   destination:
