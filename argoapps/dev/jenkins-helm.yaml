@@ -13,6 +13,8 @@ spec:
     repoURL: https://github.com/naveenkumarsp/gitops-k8sbootstrap.git
     targetRevision: HEAD
     path: "devopstools/jenkins"
+    helm:
+        valueFiles: 'devopstools/jenkins/katacoda-jenkins-values.yaml'
 
   # Destination cluster and namespace to deploy the application
   destination:
