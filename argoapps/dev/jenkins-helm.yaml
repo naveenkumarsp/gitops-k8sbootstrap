@@ -15,7 +15,7 @@ spec:
     path: "devopstools/jenkins"
     helm:
         valueFiles: 
-        - devopstools/jenkins/katacoda-jenkins-values.yaml
+        - katacoda-jenkins-values.yaml
 
   # Destination cluster and namespace to deploy the application
   destination:
