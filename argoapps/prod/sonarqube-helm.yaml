@@ -6,7 +6,7 @@ metadata:
   namespace: argocd
 spec:
   # The project the application belongs to.
-  project: default
+  project: devopstools
 
   # Source of the application manifests
   source:
@@ -20,7 +20,7 @@ spec:
   # Destination cluster and namespace to deploy the application
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: devopstools
 
   # Sync policy
   syncPolicy:
